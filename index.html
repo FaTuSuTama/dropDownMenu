@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Dropdown Menu</title>
+</head>
+
+<body onLoad="dropDownList()";>
+    <form name="dropDownList" action="yourpage.php" method="post" >
+
+        <select  name="DivisionName">
+            <option value="" >Bangladesh</option>
+        </select>
+    </form>
+    <script>
+        var div=new Date();
+        var divName=div.getMonth() +1;
+        
+        function addOption(selectbox,text,value ){
+            var opt = document.createElement("option");
+            opt.text = text;
+            opt.value = value;
+            selectbox.options.add(opt);
+        }
+
+        function dropDownList(){
+            var division = new Array("Dhaka","Khulna","Rajshahi");
+            for (var i=0; i < division.length;++i){
+            addOption(document.dropDownList.DivisionName, division[i], division[i]);
+            if(i== divName){document.dropDownList.DivisionName.options[i].selected=true;}
+            }
+        }
+    </script>
+
+
+</body>
